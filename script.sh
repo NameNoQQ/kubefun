@@ -5,7 +5,7 @@ if [[ $(id -u) != 0 ]]; then
   exit;
 fi
 
-cat << EOF >> bootstrap.sh
+cat << EOF > bootstrap.sh
 sudo pacman -Syu
 sudo pacman -S docker
 sudo pacman -S  bash-completion
@@ -19,7 +19,7 @@ shutdown -r
 EOF
 echo "[✓] Created bootstrap.sh [✓]"
 
-cat << EOF >> kubestrap.sh
+cat << EOF > kubestrap.sh
 swapoff -a
 kubeadm init --ignore-preflight-errors=SystemVerification
 export KUBECONFIG=/etc/kubernetes/admin.conf
